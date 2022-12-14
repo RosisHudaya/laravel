@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,20 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/',[PostController::class,'index']);
-
-Route::get('/create',function(){
-return view('create');
+Route::get('/mysql', function () {
+    Artisan::call('migrate:rollback', ['--force' => true]);
+    Artisan::call('migrate', ['--force' => true]);
+    Artisan::call('db:seed', ['--force' => true]);
 });
 
-Route::post('/post',[PostController::class,'store']);
-Route::delete('/delete/{id}',[PostController::class,'destroy']);
-Route::get('/edit/{id}',[PostController::class,'edit']);
 
-Route::delete('/deleteimage/{id}',[PostController::class,'deleteimage']);
-Route::delete('/deletecover/{id}',[PostController::class,'deletecover']);
+Route::get('/', [PostController::class, 'index']);
 
-Route::put('/update/{id}',[PostController::class,'update']);
+Route::get('/create', function () {
+    return view('create');
+});
 
+Route::post('/post', [PostController::class, 'store']);
+Route::delete('/delete/{id}', [PostController::class, 'destroy']);
+Route::get('/edit/{id}', [PostController::class, 'edit']);
 
+Route::delete('/deleteimage/{id}', [PostController::class, 'deleteimage']);
+Route::delete('/deletecover/{id}', [PostController::class, 'deletecover']);
+
+Route::put('/update/{id}', [PostController::class, 'update']);
