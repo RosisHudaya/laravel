@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Artisan;
 
 Route::get('/mysql', function () {
     // Artisan::call('migrate:rollback', ['--force' => true]);
-    Artisan::call('migrate:fresh', ['--force' => true]);
-    Artisan::call('db:seed', ['--force' => true]);
+    Artisan::call('migrate:fresh');
+    // Artisan::call('db:seed', ['--force' => true]);
+    Artisan::call('db:seed');
 });
 
 
