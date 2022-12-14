@@ -21,7 +21,7 @@ Route::get('/mysql', function () {
     Artisan::call('config:clear');
     Artisan::call('cache:clear');
     Artisan::call('route:clear');
-    Artisan::call('migrate', ['--force' => true]);
+    Artisan::call('migrate:fresh --env=production', ['--force' => true]);
     // Artisan::call('db:seed', ['--force' => true]);
     // Artisan::call('db:seed');
 });
