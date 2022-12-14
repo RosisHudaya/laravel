@@ -16,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::get();
+        $posts = Post::all();
+        // dd($posts);
         return view('index')->with('posts', $posts);
     }
 
