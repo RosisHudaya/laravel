@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $post['posts'] = Post::all();
-        // dd($posts);
+        // dd($post);
         // return view('index')->with('posts', $post);
         return view('index', $post);
     }
