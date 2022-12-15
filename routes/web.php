@@ -20,17 +20,17 @@ Route::get('/queue-clear', function () {
         '--force' => true
     ]);
 });
+Route::get('/config-clear', function () {
+    Artisan::call('config:clear');
+});
 
 Route::get('/mysql', function () {
-    Artisan::call('migrate:fresh');
+    Artisan::call('migrate');
     Artisan::call('db:seed', [
         '--force' => true
     ]);
 });
 
-Route::get('/config-clear', function () {
-    Artisan::call('config:clear');
-});
 Route::get('/', [PostController::class, 'index']);
 
 Route::get('/create', function () {
