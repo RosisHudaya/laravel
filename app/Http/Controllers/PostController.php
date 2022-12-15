@@ -18,8 +18,8 @@ class PostController extends Controller
     {
         $posts = Post::all();
         // dd($posts);
-        // return view('index')->with('posts', $posts);
-        return view('index', $posts);
+        return view('index')->with('posts', $posts);
+        // return view('index',));
     }
 
     /**
