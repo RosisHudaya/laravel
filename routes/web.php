@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/queue-clear', function () {
-    Artisan::call('queue:clear', [
-        '--force' => true
-    ]);
-});
-Route::get('/config-clear', function () {
-    Artisan::call('config:clear');
-});
+// Route::get('/queue-clear', function () {
+//     Artisan::call('queue:clear', [
+//         '--force' => true
+//     ]);
+// });
+// Route::get('/config-clear', function () {
+//     Artisan::call('config:clear');
+// });
 
 Route::get('/mysql', function () {
     Artisan::call('migrate');
