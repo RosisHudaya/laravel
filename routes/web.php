@@ -15,8 +15,13 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
+Route::get('/queue-clear', function () {
+    Artisan::call('queue:clear', [
+        '--force' => true
+    ]);
+});
 Route::get('/mysql', function () {
-    Artisan::call('migrate:fresh --env=production');
+    // Artisan::call('migrate:fresh --env=production');
     Artisan::call('migrate:fresh', ['--force' => true]);
     Artisan::call('db:seed', ['--force' => true]);
 });
