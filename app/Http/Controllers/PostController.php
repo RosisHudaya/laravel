@@ -16,10 +16,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $post['posts'] = Post::all();
         // dd($posts);
-        return view('index')->with('posts', $posts);
-        // return view('index',));
+        // return view('index')->with('posts', $post);
+        return view('index', $post);
     }
 
     /**
