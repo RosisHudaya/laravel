@@ -24,12 +24,12 @@ use Illuminate\Support\Facades\Artisan;
 //     Artisan::call('config:clear');
 // });
 
-Route::get('/mysql', function () {
-    Artisan::call('migrate --env=production');
-    Artisan::call('db:seed', [
-        '--force' => true
-    ]);
-});
+// Route::get('/mysql', function () {
+//     Artisan::call('migrate --env=production');
+//     Artisan::call('db:seed', [
+//         '--force' => true
+//     ]);
+// });
 
 Route::get('/', [PostController::class, 'index']);
 
