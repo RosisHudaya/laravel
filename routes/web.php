@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Artisan;
 // });
 
 Route::get('/mysql', function () {
-    Artisan::call('migrate');
+    Artisan::call('migrate --env=production');
     Artisan::call('db:seed', [
         '--force' => true
     ]);
