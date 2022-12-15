@@ -18,19 +18,19 @@
 
   <div class="container" style="margin-top: 50px;">
 
-    <h3 class="text-center text-danger"><b>Laravel CRUD With Multiple Image Upload</b> </h3>
-    <a href="/create" class="btn btn-outline-success">Add New Post</a>
+    <h3 class="text-center text-success"><b>Laravel Image Manga And Background Manga </b> </h3> <br><br>
+    <a href="/create" class="btn btn-outline-success">Tambah Data Manga</a> <br><br>
 
-    <table class="table">
+    <table class="table table-dark">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Description</th>
-          <th>Cover</th>
-          <th>Update</th>
-          <th>Delete</th>
+          <th>No</th>
+          <th>Judul Manga</th>
+          <th>Pembuat Manga</th>
+          <th>Keterangan Manga</th>
+          <th>Sampul Manga</th>
+          <th>Perbaharui</th>
+          <th>Hapus</th>
         </tr>
       </thead>
       <tbody>
@@ -43,10 +43,10 @@
           <td>{{ $post->author }}</td>
           <td>{{ $post->body }}</td>
           <td><img src="cover/{{ $post->cover }}" class="img-responsive" style="max-height:100px; max-width:100px" alt="" srcset=""></td>
-          <td><a href="/edit/{{ $post->id }}" class="btn btn-outline-primary">Update</a></td>
+          <td><a href="/edit/{{ $post->id }}" class="btn btn-outline-primary">Perbaharui</a></td>
           <td>
             <form action="/delete/{{ $post->id }}" method="post">
-              <button class="btn btn-outline-danger" onclick="return confirm('Are you sure?');" type="submit">Delete</button>
+              <button class="btn btn-outline-danger" onclick="return confirm('Are you sure?');" type="submit">Hapus</button>
               @csrf
               @method('delete')
             </form>
@@ -59,7 +59,18 @@
     </table>
   </div>
 
-
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">© Galiley Singgang M.Y TI-3G </span>
+      </div>
+    </footer>
+  </div>
 
 
 </body>
